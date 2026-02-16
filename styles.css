@@ -1,0 +1,415 @@
+:root {
+    --primary-color: #0F4C81;
+    --secondary-color: #7C8B63;
+    --background-light: #F5F1E1;
+    --text-dark: #2D2926;
+    --text-light: #4A4440;
+    --white: #F5F1E1;
+    --border-radius: 8px;
+    --container-width: 1200px;
+    --font-family: 'Inter', sans-serif;
+}
+
+html {
+    font-size: 110%;
+    /* Globally scale up rem units */
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+    font-size: 1.1rem;
+    /* Base body font size */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #0a355a;
+}
+
+.btn-secondary {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    border: 1px solid #ddd;
+}
+
+.btn-secondary:hover {
+    background-color: #e9e2cc;
+}
+
+.center-btn {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 120px 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: #f0f0f0;
+    margin-bottom: 2rem;
+}
+
+.hero p {
+    color: #ffffff;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+}
+
+.hero .cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Contacts Quick */
+.contacts-quick {
+    background-color: var(--white);
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.contacts-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+}
+
+/* Why Choose Salento */
+.why-choose {
+    background-color: var(--background-light);
+}
+
+.intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.feature-card-content {
+    padding: 2rem;
+}
+
+.full-width-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    opacity: 0.2;
+    display: block;
+    margin-bottom: -1rem;
+}
+
+.image-placeholder {
+    background-color: #e9ecef;
+    color: #6c757d;
+    padding: 40px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    font-style: italic;
+    border: 2px dashed #dee2e6;
+}
+
+/* Houses List & Destinations */
+.grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.card-link {
+    display: block;
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #eee;
+    padding: 1rem;
+}
+
+.card-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-link h3 {
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.property-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: calc(var(--border-radius) / 2);
+    display: block;
+    margin: 0;
+}
+
+/* Destinations specific */
+.destinations {
+    background-color: var(--background-light);
+}
+
+/* Services */
+.services .service-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+}
+
+.services .service-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* What to Bring */
+.what-to-bring .full-width {
+    margin-bottom: 2rem;
+    padding: 60px;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+    padding: 1.5rem 0;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #212529;
+    color: var(--white);
+    padding: 60px 0 20px 0;
+    text-align: center;
+}
+
+.footer h2 {
+    color: var(--white);
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    flex: 0 0 180px;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    display: block;
+}
+
+.footer-info {
+    flex: 1;
+}
+
+.footer-links {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer h2 {
+        text-align: center;
+    }
+
+    .footer-logo {
+        flex: 0 0 150px;
+    }
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #adb5bd;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+.bottom-bar {
+    border-top: 1px solid #343a40;
+    padding-top: 20px;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.bottom-bar a {
+    color: #adb5bd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .cta-group {
+        flex-direction: column;
+    }
+
+    .contacts-btn-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richiedi Preventivo - Salento Stay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .footer-logo {
+            flex: 0 0 120px !important;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .radio-option input {
+            width: auto;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="contacts-quick"
+        style="padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" style="font-weight: 700; color: var(--primary-color); font-size: 1.5rem;">Salento
+                Stay</a>
+            <div class="contacts-btn-group" style="margin-top: 0;">
+                <a href="https://wa.me/393881051865" class="btn btn-whatsapp" style="padding: 8px 16px;">Whatsapp</a>
+                <a href="tel:+393881051865" class="btn btn-secondary" style="padding: 8px 16px;">+39 3881051865</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Richiesta Preventivo Gratuito</h1>
+                <p>Compila il form per ricevere un preventivo personalizzato per la tua vacanza.</p>
+            </div>
+
+            <form action="https://eu-submit.jotform.com/submit/241973094878372/" method="POST" id="quote-form">
+                <input type="hidden" name="formID" value="241973094878372" />
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name">Nome *</label>
+                        <input type="text" id="first_name" name="q3_name[first]" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Cognome *</label>
+                        <input type="text" id="last_name" name="q3_name[last]" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="q5_email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefono *</label>
+                    <input type="tel" id="phone" name="q7_phoneNumber[full]" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="property">Casa Vacanze Scelta</label>
+                    <select id="property" name="q10_casaVacanze">
+                        <option value="">-- Seleziona una struttura --</option>
+                        <option value="Villetta Enzo 1">Villetta Enzo 1 - Torre Colimena</option>
+                        <option value="Villetta Enzo 2">Villetta Enzo 2 - Torre Colimena</option>
+                        <option value="Villetta Enzo 3">Villetta Enzo 3 - Torre Colimena</option>
+                        <option value="Dolce Vita 1">Villetta La Dolce Vita 1 - Torre Lapillo</option>
+                        <option value="Dolce Vita 2">Villetta La Dolce Vita 2 - Torre Lapillo</option>
+                        <option value="Casa Salentum">Casa Salentum - Porto Cesareo</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="check_in">Data Check-in *</label>
+                        <input type="date" id="check_in" required>
+                        <input type="hidden" name="q11_date[day]" id="checkin_day">
+                        <input type="hidden" name="q11_date[month]" id="checkin_month">
+                        <input type="hidden" name="q11_date[year]" id="checkin_year">
+                    </div>
+                    <div class="form-group">
+                        <label for="check_out">Data Check-out *</label>
+                        <input type="date" id="check_out" required>
+                        <input type="hidden" name="q12_checkout[day]" id="checkout_day">
+                        <input type="hidden" name="q12_checkout[month]" id="checkout_month">
+                        <input type="hidden" name="q12_checkout[year]" id="checkout_year">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adults">Numero Adulti *</label>
+                        <input type="number" id="adults" name="q32_numeroDi" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="children">Numero Bambini</label>
+                        <input type="number" id="children" name="q33_numeroDi33" min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Privacy Policy *</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="privacy" value="consenso" required>
+                            <span>Dichiaro di aver letto l'informativa privacy e acconsento al trattamento dei
+                                dati.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary"
+                    style="width: 100%; padding: 15px; font-size: 1.1rem;">Invia Richiesta</button>
+            </form>
+
+            <p style="font-size: 0.9rem; color: #666; margin-top: 20px; text-align: center;">
+                * Campi obbligatori. Ti risponderemo il prima possibile.
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo-salento-stay.jpg" alt="Salento Stay Logo">
+                </div>
+                <div class="footer-info">
+                    <h2>Contatti e Social</h2>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><strong>Torna alla Home</strong></a></li>
+                        <li><a href="https://wa.me/393881051865"><strong>Contattaci (Whatsapp)</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <span>&copy; 2026 Salento Stay - Tutti i diritti riservati</span>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('quote-form').addEventListener('submit', function (e) {
+            const checkIn = document.getElementById('check_in').value;
+            const checkOut = document.getElementById('check_out').value;
+
+            if (checkIn) {
+                const [year, month, day] = checkIn.split('-');
+                document.getElementById('checkin_day').value = day;
+                document.getElementById('checkin_month').value = month;
+                document.getElementById('checkin_year').value = year;
+            }
+
+            if (checkOut) {
+                const [year, month, day] = checkOut.split('-');
+                document.getElementById('checkout_day').value = day;
+                document.getElementById('checkout_month').value = month;
+                document.getElementById('checkout_year').value = year;
+            }
+        });
+    </script>
+</body>
+
+</html>

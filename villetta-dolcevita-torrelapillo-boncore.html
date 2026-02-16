@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villetta La Dolce Vita 1 - Torre Lapillo - Salento Stay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .property-hero {
+            padding: 60px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .property-content {
+            padding: 40px 0;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            max-width: 90%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+
+        .nav-dot.active {
+            background: white;
+        }
+
+        .property-sidebar {
+            background-color: var(--background-light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            height: fit-content;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .description-text {
+            white-space: pre-line;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .legal-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .cin-box {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-item img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="contacts-quick"
+        style="padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" style="font-weight: 700; color: var(--primary-color); font-size: 1.5rem;">Salento
+                Stay</a>
+            <div class="contacts-btn-group" style="margin-top: 0;">
+                <a href="https://wa.me/393881051865" class="btn btn-whatsapp" style="padding: 8px 16px;">Whatsapp</a>
+                <a href="tel:+393881051865" class="btn btn-secondary" style="padding: 8px 16px;">+39 3881051865</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="property-hero">
+        <div class="container">
+            <h1>Villetta La Dolce Vita 1</h1>
+            <p>Torre Lapillo - Boncore (LE)</p>
+        </div>
+    </header>
+
+    <div class="property-content">
+        <div class="container">
+            <div class="property-grid">
+                <main class="property-main">
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-item"><img src="IMG_2288.jpeg" alt="Villetta La Dolce Vita 1 - 18">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2287.jpeg" alt="Villetta La Dolce Vita 1 - 17">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2286.jpeg" alt="Villetta La Dolce Vita 1 - 16">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2283.jpeg" alt="Villetta La Dolce Vita 1 - 15">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2281.jpeg" alt="Villetta La Dolce Vita 1 - 14">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2280.jpeg" alt="Villetta La Dolce Vita 1 - 13">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2279.jpeg" alt="Villetta La Dolce Vita 1 - 12">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2278.jpeg" alt="Villetta La Dolce Vita 1 - 11">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2276.jpeg" alt="Villetta La Dolce Vita 1 - 10">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2275.jpeg" alt="Villetta La Dolce Vita 1 - 9">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2274.jpeg" alt="Villetta La Dolce Vita 1 - 8">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2273.jpeg" alt="Villetta La Dolce Vita 1 - 7">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2266.jpeg" alt="Villetta La Dolce Vita 1 - 6">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2265.jpeg" alt="Villetta La Dolce Vita 1 - 5">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2263.jpeg" alt="Villetta La Dolce Vita 1 - 4">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2261.jpeg" alt="Villetta La Dolce Vita 1 - 3">
+                            </div>
+                            <div class="carousel-item"><img src="IMG_2258.jpeg" alt="Villetta La Dolce Vita 1 - 2">
+                            </div>
+                        </div>
+                        <div class="carousel-nav" id="carouselNav"></div>
+                    </div>
+
+                    <script>
+                        const track = document.getElementById('carouselTrack');
+                        const nav = document.getElementById('carouselNav');
+                        const items = track.querySelectorAll('.carousel-item');
+
+                        items.forEach((_, i) => {
+                            const dot = document.createElement('div');
+                            dot.classList.add('nav-dot');
+                            if (i === 0) dot.classList.add('active');
+                            dot.addEventListener('click', () => {
+                                track.scrollTo({
+                                    left: track.offsetWidth * i,
+                                    behavior: 'smooth'
+                                });
+                            });
+                            nav.appendChild(dot);
+                        });
+
+                        track.addEventListener('scroll', () => {
+                            const index = Math.round(track.scrollLeft / track.offsetWidth);
+                            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                                dot.classList.toggle('active', i === index);
+                            });
+                        });
+                    </script>
+
+                    <h2>Descrizione</h2>
+                    <div class="description-text">
+                        Villetta La Dolce Vita, situata in una posizione ideale a pochi passi dal mare. La casa è
+                        perfetta per trascorrere un soggiorno all'insegna del relax e del divertimento. Dispone di un
+                        open space con cucina/sala da pranzo luminosa, con un comodo eventuale divano letto. La zona
+                        notte è composta da una camera matrimoniale e una cameretta. Vanta una pertinenza esterna
+                        privata perfetta per pranzi e cene all'aperto. Potrai raggiungere la spiaggia in pochi minuti.
+                        La zona è tranquilla e ben servita.
+
+                        1 Camera da letto matrimoniale
+                        1 Camera da letto con un letto a castello
+                        Pertinenza esterna
+                        Aria Condizionata in tutti gli ambienti
+                    </div>
+
+                    <div class="legal-info">
+                        <div class="cin-box">CIN: IT075052C200109610</div>
+                        <div class="disclaimer">"Allogio protetto da incendi e fughe di gas secondo la normativa Affitti
+                            Brevi Legge 191/2023"</div>
+                    </div>
+                </main>
+                <aside class="property-sidebar">
+                    <h3>Caratteristiche</h3>
+                    <ul class="feature-list">
+                        <li>📍 Location: Torre Lapillo - Boncore</li>
+                        <li>🛏️ 1 Camera da letto matrimoniale</li>
+                        <li>🛏️ 1 Camera con letto a castello</li>
+                        <li>❄️ Aria condizionata in tutti gli ambienti</li>
+                        <li>🌳 Pertinenza esterna privata</li>
+                    </ul>
+                    <a href="prev-gratuito-form.html" class="btn btn-primary"
+                        style="width: 100%; margin-top: 20px;">Richiedi Preventivo</a>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="index.html"><strong>Torna alla Home</strong></a></li>
+                <li><a href="strutture-1.html"><strong>Tutte le strutture</strong></a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villetta della Felicità - San Pietro in Bevagna - Salento Stay</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .property-hero {
+            padding: 60px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .property-content {
+            padding: 40px 0;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            max-width: 90%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+
+        .nav-dot.active {
+            background: white;
+        }
+
+        .property-sidebar {
+            background-color: var(--background-light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            height: fit-content;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .description-text {
+            white-space: pre-line;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .legal-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .cin-box {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-item img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="contacts-quick"
+        style="padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" style="font-weight: 700; color: var(--primary-color); font-size: 1.5rem;">Salento
+                Stay</a>
+            <div class="contacts-btn-group" style="margin-top: 0;">
+                <a href="https://wa.me/393881051865" class="btn btn-whatsapp" style="padding: 8px 16px;">Whatsapp</a>
+                <a href="tel:+393881051865" class="btn btn-secondary" style="padding: 8px 16px;">+39 3881051865</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="property-hero">
+        <div class="container">
+            <h1>Villetta della Felicità</h1>
+            <p>San Pietro in Bevagna (TA)</p>
+        </div>
+    </header>
+
+    <div class="property-content">
+        <div class="container">
+            <div class="property-grid">
+                <main class="property-main">
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-item"><img src="1c051106-7e35-43e0-800b-807b15b1b01b.JPG"
+                                    alt="Villetta della Felicità - 1"></div>
+                            <div class="carousel-item"><img src="33e92b7a-a2ec-4d58-a64e-4737931e45ea.JPG"
+                                    alt="Villetta della Felicità - 2"></div>
+                            <div class="carousel-item"><img src="3ba42364-d797-4d6a-9ac7-e77b0a59088d.JPG"
+                                    alt="Villetta della Felicità - 3"></div>
+                            <div class="carousel-item"><img src="villetta-felicita-bagno.jpg"
+                                    alt="Villetta della Felicità - Bagno"></div>
+                            <div class="carousel-item"><img src="4887af49-5078-4714-b9cd-1463155748ca.JPG"
+                                    alt="Villetta della Felicità - 4"></div>
+                            <div class="carousel-item"><img src="4ed4f68b-4e7d-4478-96ce-fadc9e1baa99.JPG"
+                                    alt="Villetta della Felicità - 5"></div>
+                            <div class="carousel-item"><img src="54dce909-8009-4d54-af5f-eff9d1a03fe2.JPG"
+                                    alt="Villetta della Felicità - 6"></div>
+                            <div class="carousel-item"><img src="6922c491-1996-4eaf-9efd-2063b868077d.JPG"
+                                    alt="Villetta della Felicità - 7"></div>
+                            <div class="carousel-item"><img src="811feda0-1750-4148-8123-f7f1e7571060.JPG"
+                                    alt="Villetta della Felicità - 8"></div>
+                            <div class="carousel-item"><img src="adfddb0e-f459-45fd-8da7-4ecb9c6de54b.JPG"
+                                    alt="Villetta della Felicità - 9"></div>
+                            <div class="carousel-item"><img src="cb4e8acc-d731-4345-8468-8349b70db822.JPG"
+                                    alt="Villetta della Felicità - 10"></div>
+                            <div class="carousel-item"><img src="eb00c3e8-12da-4b30-b12e-1924729f63b3.JPG"
+                                    alt="Villetta della Felicità - 11"></div>
+                            <div class="carousel-item"><img src="edf43fc3-755d-4c93-b2e9-33edc963d634.JPG"
+                                    alt="Villetta della Felicità - 12"></div>
+                            <div class="carousel-item"><img src="f1bff965-c933-4c77-a2a0-5de431fbc084.JPG"
+                                    alt="Villetta della Felicità - 13"></div>
+                            <div class="carousel-item"><img src="f981eadb-0430-43e9-b85c-5afa4213239e.JPG"
+                                    alt="Villetta della Felicità - 14"></div>
+                            <div class="carousel-item"><img src="fb529a27-80f1-48dc-9ee5-762dab9a9d1b.JPG"
+                                    alt="Villetta della Felicità - 15"></div>
+                            <div class="carousel-item"><img src="IMG_0340.jpeg" alt="Villetta della Felicità - 16">
+                            </div>
+                        </div>
+                        <div class="carousel-nav" id="carouselNav"></div>
+                    </div>
+
+                    <script>
+                        const track = document.getElementById('carouselTrack');
+                        const nav = document.getElementById('carouselNav');
+                        const items = track.querySelectorAll('.carousel-item');
+
+                        items.forEach((_, i) => {
+                            const dot = document.createElement('div');
+                            dot.classList.add('nav-dot');
+                            if (i === 0) dot.classList.add('active');
+                            dot.addEventListener('click', () => {
+                                track.scrollTo({
+                                    left: track.offsetWidth * i,
+                                    behavior: 'smooth'
+                                });
+                            });
+                            nav.appendChild(dot);
+                        });
+
+                        track.addEventListener('scroll', () => {
+                            const index = Math.round(track.scrollLeft / track.offsetWidth);
+                            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                                dot.classList.toggle('active', i === index);
+                            });
+                        });
+                    </script>
+
+                    <h2>Descrizione</h2>
+                    <div class="description-text">
+                        Scopri una deliziosa villetta situata a San Pietro in Bevagna, a soli 250 metri dalla splendida
+                        spiaggia sabbiosa. Questa casa vacanze accogliente offre 2 camere da letto, soggiorno con TV a
+                        schermo piatto, cucina attrezzata e 2 bagni. All'esterno, una terrazza privata con giardino e
+                        zona pranzo all'aperto ti permetteranno di rilassarti immerso nella tranquillità. Il parcheggio
+                        privato e il WiFi gratuito completano i comfort offerti. Perfetta per famiglie o gruppi di
+                        amici, la villetta è un punto di partenza ideale per esplorare le bellezze naturali e culturali
+                        del Salento.
+
+                        2 Camera da letto matrimoniale con lettini singoli
+                        Pertinenza esterna
+                        Aria Condizionata in tutti gli ambienti
+                    </div>
+
+                    <div class="legal-info">
+                        <div class="cin-box">CIN: IT073012C200106599</div>
+                        <div class="disclaimer">"Allogio protetto da incendi e fughe di gas secondo la normativa Affitti
+                            Brevi Legge 191/2023"</div>
+                    </div>
+                </main>
+                <aside class="property-sidebar">
+                    <h3>Caratteristiche</h3>
+                    <ul class="feature-list">
+                        <li>📍 Location: San Pietro in Bevagna</li>
+                        <li>🛏️ 2 Camere matrimoniali con lettini</li>
+                        <li>❄️ Aria condizionata in tutti gli ambienti</li>
+                        <li>🌿 Giardino e terrazza privata</li>
+                        <li>📡 WiFi gratuito</li>
+                        <li>🚗 Parcheggio privato</li>
+                        <li>🏖️ 250m dalla spiaggia</li>
+                    </ul>
+                    <a href="prev-gratuito-form.html" class="btn btn-primary"
+                        style="width: 100%; margin-top: 20px;">Richiedi Preventivo</a>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="index.html"><strong>Torna alla Home</strong></a></li>
+                <li><a href="strutture-1.html"><strong>Tutte le strutture</strong></a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>
