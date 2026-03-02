@@ -209,23 +209,29 @@
                     </div>
 
                     <script>
-                      k                        ent.getElementByI                            rack');
-                        const nav = document.                            Id('carouselNav');
-                        const item                            erySelectorAll('.carousel-item');
+                        const track = document.getElementById('carouselTrack');
+                        const nav = document.getElementById('carouselNav');
+                        const items = track.querySelectorAll('.carousel-item');
 
-                                              forEach((_, i) => {
-                            const                            ent.createElement('div');
-                                                       st.add('nav-dot');
-                            if (i                             lassList.add('active');
-                            d                            istener('click', () => {
-                                                        rollTo({ left: track.offsetWidth * i, behavior: 'smoo                                                    });
-                                                     dChild(dot);
+                        // Create dots
+                        items.forEach((_, i) => {
+                            const dot = document.createElement('div');
+                            dot.classList.add('nav-dot');
+                            if (i === 0) dot.classList.add('active');
+                            dot.addEventListener('click', () => {
+                                track.scrollTo({
+                                    left: track.offsetWidth * i,
+                                    behavior: 'smooth'
+                                });
+                            });
+                            nav.appendChild(dot);
                         });
 
-                                        track.addEventListener('scroll', () => {
-                                            const index = Math.round(track.scrollLeft / trac                            h);
-                            document.querySelecto                            ot').forEach((dot, i) => {
-                                                      assList.toggle('active', i === index);
+                        // Update active dot on scroll
+                        track.addEventListener('scroll', () => {
+                            const index = Math.round(track.scrollLeft / track.offsetWidth);
+                            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                                dot.classList.toggle('active', i === index);
                             });
                         });
                     </script>
@@ -240,8 +246,8 @@
 
                     <div class="legal-info">
                         <div class="cin-box">CIN: IT075097B400123521</div>
-                        <div class="disclaimer">🔥🛡️ Alloggio protetto da incendi e fughe di gas secondo la normativa
-                            Affitti Brevi Legge 191/2023</div>
+                        <div class="disclaimer">"Alloggio protetto da incendi e fughe di gas secondo la normativa
+                            Affitti Brevi Legge 191/2023"</div>
                     </div>
 
                 </main>
