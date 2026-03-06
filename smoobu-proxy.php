@@ -20,15 +20,15 @@
  */
 
 /* ============================================================
-   ⚙️  CONFIGURA QUI LA TUA API KEY
-   ============================================================ */
-define('SMOOBU_API_KEY', 'LA_TUA_API_KEY_SMOOBU');
-define('SMOOBU_BASE',    'https://login.smoobu.com/api');
+ ⚙️  CONFIGURA QUI LA TUA API KEY
+ ============================================================ */
+define('SMOOBU_API_KEY', 'Cx1ve1yOhiw0geRsYpfrIpAPH6ZpC5sFotJ80loOMo');
+define('SMOOBU_BASE', 'https://login.smoobu.com/api');
 
 /* ============================================================
-   SICUREZZA: limita le origini autorizzate
-   Inserisci il dominio del tuo sito (con e senza www se necessario)
-   ============================================================ */
+ SICUREZZA: limita le origini autorizzate
+ Inserisci il dominio del tuo sito (con e senza www se necessario)
+ ============================================================ */
 $allowed_origins = [
     'https://www.tuosito.it',
     'https://tuosito.it',
@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 /* ============================================================
-   WHITELIST PATH – solo endpoint necessari al widget
-   ============================================================ */
+ WHITELIST PATH – solo endpoint necessari al widget
+ ============================================================ */
 $allowed_paths = [
     '#^/apartments/\d+/availability$#',
     '#^/rates/apartments/\d+$#',
@@ -75,27 +75,27 @@ if (!$path_ok) {
 }
 
 /* ============================================================
-   QUERY STRING: passa i parametri GET al proxy (es. start_date…)
-   ============================================================ */
+ QUERY STRING: passa i parametri GET al proxy (es. start_date…)
+ ============================================================ */
 $query_params = $_GET;
-unset($query_params['path']);  // rimuovi il parametro interno
+unset($query_params['path']); // rimuovi il parametro interno
 $query_string = http_build_query($query_params);
 $url = SMOOBU_BASE . $path . ($query_string ? "?$query_string" : '');
 
 /* ============================================================
-   CORPO: per POST leggi il body JSON inviato dal browser
-   ============================================================ */
+ CORPO: per POST leggi il body JSON inviato dal browser
+ ============================================================ */
 $method = $_SERVER['REQUEST_METHOD'];
-$body   = ($method === 'POST') ? file_get_contents('php://input') : null;
+$body = ($method === 'POST') ? file_get_contents('php://input') : null;
 
 /* ============================================================
-   CHIAMATA cURL verso Smoobu
-   ============================================================ */
+ CHIAMATA cURL verso Smoobu
+ ============================================================ */
 $ch = curl_init($url);
 curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_TIMEOUT        => 15,
-    CURLOPT_HTTPHEADER     => [
+    CURLOPT_TIMEOUT => 15,
+    CURLOPT_HTTPHEADER => [
         'Api-Key: ' . SMOOBU_API_KEY,
         'Content-Type: application/json',
         'Accept: application/json',
