@@ -1202,7 +1202,7 @@
                         <script>
                             (function () {
                                 "use strict";
-                                const CONFIG = { smoobuApiKey: "LA_TUA_API_KEY_SMOOBU", useProxy: false, proxyUrl: "/smoobu-proxy.php", bankDetails: { name: "Mario Bianchi", iban: "IT60 X054 2811 1010 0000 0123 456" }, cleaningFee: 40, currency: "EUR", availWindowDays: 180 };
+                                const CONFIG = { smoobuApiKey: "Cx1ve1yOhiw0geRsYpfrIpAPH6ZpC5sFotJ80loOMo", useProxy: false, proxyUrl: "/smoobu-proxy.php", bankDetails: { name: "Mario Bianchi", iban: "IT60 X054 2811 1010 0000 0123 456" }, cleaningFee: 40, currency: "EUR", availWindowDays: 180 };
                                 const fmt = n => new Intl.NumberFormat("it-IT", { style: "currency", currency: CONFIG.currency, minimumFractionDigits: 2 }).format(n);
                                 const diffNights = (a, b) => Math.round((new Date(b) - new Date(a)) / 86400000);
                                 const addDays = (iso, n) => { const d = new Date(iso); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
