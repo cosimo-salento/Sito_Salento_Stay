@@ -1,16 +1,20 @@
 // netlify/functions/smoobu-proxy.js
-// ─────────────────────────────────────────────────────────────
 // Netlify Serverless Function — proxy per l'API Smoobu
-// Posizione: netlify/functions/smoobu-proxy.js
-// ─────────────────────────────────────────────────────────────
 
 const SMOOBU_API_KEY = 'Cx1ve1yOhiw0geRsYpfrIpAPH6ZpC5sFotJ80loOMo';
 const SMOOBU_BASE    = 'https://login.smoobu.com/api';
 
 exports.handler = async (event) => {
 
+  const allowedOrigins = [
+    'https://salento-stay.com',
+    'https://www.salento-stay.com',
+  ];
+  const origin = event.headers?.origin || event.headers?.Origin || '';
+  const corsOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
+
   const headers = {
-    'Access-Control-Allow-Origin':  'https://salento-stay.com',
+    'Access-Control-Allow-Origin':  corsOrigin,
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Content-Type':                 'application/json',
@@ -54,12 +58,43 @@ exports.handler = async (event) => {
     }
 
     const response = await fetch(url, fetchOptions);
-    const data     = await response.text();
+    const rawText  = await response.text();
+
+    // Normalizza la risposta availability al formato atteso dal frontend:
+    // { availability: { "YYYY-MM-DD": false (occupato) / true (libero) } }
+    if (/^\/apartments\/\d+\/availability$/.test(path) && response.ok) {
+      try {
+        const json = JSON.parse(rawText);
+
+        // Formato A: già nel formato corretto { availability: { date: bool } }
+        if (json.availability && typeof Object.values(json.availability)[0] === 'boolean') {
+          return { statusCode: response.status, headers, body: rawText };
+        }
+
+        // Formato B: { data: { "date": { available: 0/1 } } }
+        const source = json.data || json.apartments?.[Object.keys(json.apartments || {})[0]] || {};
+        const availability = {};
+        for (const [date, val] of Object.entries(source)) {
+          if (typeof val === 'object' && val !== null) {
+            availability[date] = val.available !== 0 && val.available !== false;
+          } else {
+            availability[date] = val !== 0 && val !== false;
+          }
+        }
+        return {
+          statusCode: response.status,
+          headers,
+          body: JSON.stringify({ availability }),
+        };
+      } catch (_) {
+        // Parsing fallito, restituisce risposta originale
+      }
+    }
 
     return {
       statusCode: response.status,
       headers,
-      body: data,
+      body: rawText,
     };
 
   } catch (err) {
