@@ -30,8 +30,8 @@ define('SMOOBU_BASE', 'https://login.smoobu.com/api');
  Inserisci il dominio del tuo sito (con e senza www se necessario)
  ============================================================ */
 $allowed_origins = [
-    'https://www.tuosito.it',
-    'https://tuosito.it',
+    'https://www.salento-stay.com',
+    'https://salento-stay.com',
     // 'http://localhost'  ← decommenta per test in locale
 ];
 
