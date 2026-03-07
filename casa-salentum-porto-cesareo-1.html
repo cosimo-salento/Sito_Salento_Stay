@@ -1297,7 +1297,8 @@
                                     }
                                     function onDayCreate(dObj, dStr, fp, dayElem) {
                                         dayElem.classList.remove("day-full", "day-checkin", "day-checkout");
-                                        const s = availCache[dStr];
+                                        const iso = dayElem.dateObj.toISOString().slice(0, 10);
+                                        const s = availCache[iso];
                                         if (s === "full") dayElem.classList.add("day-full", "flatpickr-disabled");
                                         else if (s === "checkin") dayElem.classList.add("day-checkin");
                                         else if (s === "checkout") dayElem.classList.add("day-checkout");
