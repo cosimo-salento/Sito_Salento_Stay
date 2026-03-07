@@ -1352,7 +1352,7 @@
                                         priceBox.style.display = "none"; btnTo3.style.display = "none";
                                         try {
                                             const avail = await smoobuFetch(`/apartments/${apartmentId}/availability?start_date=${ci}&end_date=${co}`);
-                                            const isAvail = Object.values(avail.availability || {}).every(v => v !== false);
+                                            const isAvail = Object.entries(avail.availability || {}).filter(([date]) => date < co).every(([, v]) => v !== false);
                                             if (!isAvail) { badge.className = "sbw__avail-badge sbw__avail-badge--no"; badge.innerHTML = icon("x") + "<span>Non disponibile per le date selezionate.</span>"; return; }
                                             badge.className = "sbw__avail-badge sbw__avail-badge--ok";
                                             badge.innerHTML = icon("check") + "<span>Disponibile! Ecco il tuo preventivo.</span>";
