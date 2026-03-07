@@ -172,6 +172,10 @@
             color: var(--text);
         }
 
+        .sbw {
+            position: relative;
+        }
+
         .sbw__header {
             position: relative;
             overflow: hidden;
@@ -1318,7 +1322,7 @@
                                     }
                                     async function initFlatpickr() {
                                         const start = todayISO(), end = addDays(start, CONFIG.availWindowDays);
-                                        const base = { locale: "it", dateFormat: "Y-m-d", altInput: true, altFormat: "j M Y", minDate: "today", maxDate: end, disableMobile: true, onDayCreate, onMonthChange };
+                                        const base = { locale: "it", dateFormat: "Y-m-d", altInput: true, altFormat: "j M Y", minDate: "today", maxDate: end, disableMobile: true, appendTo: widget, onDayCreate, onMonthChange };
                                         fpCI = flatpickr(`#${widget.id} #sbw-checkin`, { ...base, onChange([d]) { if (d) { const nd = addDays(d.toISOString().slice(0, 10), 1); fpCO.set("minDate", nd); const co = fpCO.selectedDates[0]; if (co && co <= d) fpCO.clear(); } refreshCheckBtn(); } });
                                         fpCO = flatpickr(`#${widget.id} #sbw-checkout`, { ...base, onChange() { refreshCheckBtn(); } });
                                         const statusEl = $("#sbw-avail-status");
