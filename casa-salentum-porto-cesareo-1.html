@@ -840,14 +840,14 @@
             border-radius: 0 !important;
         }
 
-        .booking-widget-wrap .flatpickr-day.day-full {
+        .flatpickr-day.day-full {
             color: #9cc4d8 !important;
             cursor: not-allowed !important;
             pointer-events: none !important;
             background: #fef4f5 !important;
         }
 
-        .booking-widget-wrap .flatpickr-day.day-full::after {
+        .flatpickr-day.day-full::after {
             content: '';
             position: absolute;
             bottom: 3px;
@@ -858,7 +858,7 @@
             border-radius: 2px;
         }
 
-        .booking-widget-wrap .flatpickr-day.day-checkin::after {
+        .flatpickr-day.day-checkin::after {
             content: '';
             position: absolute;
             bottom: 3px;
@@ -869,7 +869,7 @@
             border-radius: 0 2px 2px 0;
         }
 
-        .booking-widget-wrap .flatpickr-day.day-checkout::after {
+        .flatpickr-day.day-checkout::after {
             content: '';
             position: absolute;
             bottom: 3px;
@@ -1322,7 +1322,7 @@
                                     }
                                     async function initFlatpickr() {
                                         const start = todayISO(), end = addDays(start, CONFIG.availWindowDays);
-                                        const base = { locale: "it", dateFormat: "Y-m-d", altInput: true, altFormat: "j M Y", minDate: "today", maxDate: end, disableMobile: true, appendTo: widget, onDayCreate, onMonthChange };
+                                        const base = { locale: "it", dateFormat: "Y-m-d", altInput: true, altFormat: "j M Y", minDate: "today", maxDate: end, disableMobile: true, onDayCreate, onMonthChange };
                                         fpCI = flatpickr(`#${widget.id} #sbw-checkin`, { ...base, onChange([d]) { if (d) { const nd = addDays(d.toISOString().slice(0, 10), 1); fpCO.set("minDate", nd); const co = fpCO.selectedDates[0]; if (co && co <= d) fpCO.clear(); } refreshCheckBtn(); } });
                                         fpCO = flatpickr(`#${widget.id} #sbw-checkout`, { ...base, onChange() { refreshCheckBtn(); } });
                                         const statusEl = $("#sbw-avail-status");
