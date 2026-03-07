@@ -28,13 +28,14 @@ exports.handler = async (event) => {
   // Leggi il path dall'URL  es. /?path=/apartments/123/availability
   const path = event.queryStringParameters?.path || '';
 
-  // Whitelist path ammessi
+  // Whitelist path ammessi (controlla solo la parte prima del "?")
+  const pathOnly = path.split('?')[0];
   const allowed = [
     /^\/apartments\/\d+\/availability$/,
     /^\/rates\/apartments\/\d+$/,
     /^\/reservations$/,
   ];
-  if (!allowed.some(r => r.test(path))) {
+  if (!allowed.some(r => r.test(pathOnly))) {
     return { statusCode: 403, headers, body: JSON.stringify({ error: 'Path non consentito' }) };
   }
 
